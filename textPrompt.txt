@@ -1,0 +1,8 @@
+As a content creator i am trying to generate a summarized text for story under 30 words it should have property like
+1. It should not use any emoji
+2. It should be funny and engaging
+3. should not have any spelling mistake
+4. it should be funny and engaging
+
+this is the heading of the article - {heading}
+this is the content of the article - {content}

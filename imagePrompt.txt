@@ -1,0 +1,9 @@
+As a content creator i am trying to generate an image based on text for story. it should have property like
+1. It should not use any word or alphabet
+2. A funny cartoon
+3. Please make sure spelling is correct
+4. it should be funny and engaging
+5. should use vibrant colors
+
+this is the heading of the article - {heading}
+this is the content of the article - {content}
