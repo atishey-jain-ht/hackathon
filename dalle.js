@@ -1,11 +1,17 @@
 import OpenAI from "openai";
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
 
 
 
 const openai = new OpenAI({
+    apiKey: process.env.DALLE
    });
+    console.log("🚀 ~ process.env.DALLE:", process.env.DALLE)
 
-async function generateImage(input) {
+async function generateImage(input, totalImg=1) {
 console.log("🚀 ~ generateImage ~ input:", input)
 
     const prompt = `
@@ -19,7 +25,7 @@ console.log("🚀 ~ generateImage ~ input:", input)
 7. It should not be very random image. It should be related to the content and heading, should also match emotions.
 
 this is the heading of the article - ${input.heading}
-this is the content of the article - ${input.content?.substring(0, 600)}
+this is the content of the article - ${input.content?.substring(0, 300)}
 
     `
 

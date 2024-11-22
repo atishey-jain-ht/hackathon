@@ -3,9 +3,15 @@ import getH1 from './extractH1.js';
 import generateImage from './dalle.js';
 import Jsonic from 'jsonic';
 
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
+
 // Define Azure OpenAI API details
 const apiUrl = "https://hthackathon2024.openai.azure.com/openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-02-15-preview";
-
+const apiKey = process.env.OPENAI
+console.log("🚀 ~ apiKey:", apiKey)
 
 
 
@@ -67,11 +73,7 @@ this is the content of the article - ${input.content}
 
     // Extract and log the assistant's reply
     const reply = response.data.choices[0].message.content;
-    // let imgs = []
-    //  for(let i=0;i<reply.length;i++) {
-    //   const retImg = await generateImage(input)
-    //   imgs.push(retImg)
-    // }
+    
     console.log("🚀 ~ chatWithAzureGPT ~ reply:", reply)
     // console.log("🚀 ~ chatWithAzureGPT ~ imgs:", imgs)
 
@@ -79,10 +81,16 @@ this is the content of the article - ${input.content}
     console.log("🚀 ~ chatWithAzureGPT ~ formattedReply:", formattedReply)
    
     // const img = ""
-    const img = await generateImage(input)
-    console.log("🚀 ~ chatWithAzureGPT ~ img:", img)
+    // const img = await generateImage(input, formattedReply?.length)
+    // console.log("🚀 ~ chatWithAzureGPT ~ img:", img)
 
-    return {img, reply}
+    let imgs = []
+     for(let i=0;i<formattedReply.length;i++) {
+      const retImg = await generateImage(input)
+      imgs.push(retImg)
+    }
+
+    return {imgs, formattedReply}
     // console.log("Assistant's Reply:", reply);
     // return reply
   } catch (error) {
