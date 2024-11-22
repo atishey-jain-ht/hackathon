@@ -3,8 +3,7 @@ import OpenAI from "openai";
 
 
 const openai = new OpenAI({
-    apiKey: "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",  // Replace with your OpenAI API key
-});
+   });
 
 async function generateImage(input) {
 console.log("🚀 ~ generateImage ~ input:", input)

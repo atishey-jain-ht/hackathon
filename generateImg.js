@@ -5,7 +5,6 @@ import Jsonic from 'jsonic';
 
 // Define Azure OpenAI API details
 const apiUrl = "https://hthackathon2024.openai.azure.com/openai/deployments/gpt-4o-mini/chat/completions?api-version=2024-02-15-preview";
-const apiKey = "EoLBu7ngisaqn29RQOCC9D99WPoKQCBcmZoo1LFw1OVnSgPgzxeXJQQJ99AKAC77bzfXJ3w3AAABACOG82ev"; // Replace with your Azure API key
 
 
 
@@ -41,6 +40,7 @@ As a content creator i am trying to generate a heading and one line description 
 6. The category should have name of person/compony/about which we were describing
 7. category should be like title should be more specific and informative
 8. It should return parsable js object so that we can pass that into function.
+9.generate between 1 to 5 slides based on the content and categories them and return array
 
 this is the heading of the article - ${input.heading}
 this is the content of the article - ${input.content}
